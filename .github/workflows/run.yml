@@ -1,30 +1,30 @@
-name: Run SSH Login
+姓名:运行SSH登录
 
-on:
-  schedule:
-    - cron: '0 11 5 * *'  # 每月的 5号 北京时间 19 点运行
-  workflow_dispatch:
+在……之上:
+计划表:
+-克朗:'0 13 15 * *'  # 每月的 5号 北京时间 19 点运行
+workflow_dispatch:
 
-jobs:
-  ssh-login-notification:
-    runs-on: ubuntu-latest
+工作:
+ssh登录通知:
+run-on:ubuntu-最新
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+步骤:
+-姓名:签出存储库
+uses:操作/签出@v2
       
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+-姓名:设置Python
+uses:操作/setup-python@v2
+和……一起:
+Python版:'3.x'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install paramiko requests
+-姓名:安装相依性
+跑:|
+Python-m pip安装--upgrade pip
+PIP安装paramiko请求
       
-      - name: Run Python script
-        env:
-          SSH_INFO: ${{ secrets.SSH_INFO }}
-          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-        run: python run.py
+-姓名:运行Python脚本
+env:
+SSH_INFO:${{secrets.SSH_INFO}}
+PUSHPLUS_TOKEN:${{secrets.PUSHPLUS_TOKEN}}
+跑:Python run.py
